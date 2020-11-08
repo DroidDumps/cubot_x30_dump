@@ -1,0 +1,511 @@
+<!-- 请修改该配置文件后,集成到/system/etc/目录下面 -->
+<!-- 各个选项请不要修改对应的key值,只修改defaultValue的值,在取值范围内选取,设置取值范围之外的值则为无效值 -->
+
+<CameraPreferences>
+    <!-- Logo水印开关是否显示在设置中  -->
+    <!-- 取值范围：{on, off}, 默认为off, 设置菜单中不显示该功能的开关, 且Logo水印为关闭  -->
+    <Item>
+        <key>pref_camera_logo_watermark_enable_key</key>
+        <defaultValue>off</defaultValue>
+    </Item>
+    <!-- 默认Logo水印打开状态 -->
+    <!-- 取值范围：{on, off}, 默认为off-->
+    <Item>
+        <key>pref_camera_logo_watermark_key</key>
+        <defaultValue>off</defaultValue>
+    </Item>
+    
+    <!-- 自定义真双摄虚化模式的提示  -->
+    <!-- 以“,”为分隔符配置两个数字,如配置为“0.2,0.8”则进入虚化模式会有以下提示  -->
+    <!-- 将拍摄对象置于0.2-0.8米内,虚化效果最佳  -->
+    <Item>
+        <key>pref_camera_bokeh_tips_key</key>
+        <defaultValue>0.5,2</defaultValue>
+    </Item>
+    
+    <!-- MTK平台ZSL(无延时拍照)功能 -->
+    <!-- 取值范围：{on,off},默认为off,设置为on则默认开启ZSL  -->
+    <Item>
+        <key>pref_camera_zsl_key</key>
+        <defaultValue>on</defaultValue>
+    </Item>
+    
+        <!-- 拍照分辨率 -->
+    <!-- 填入具体数值(单位为万像素)，应用会从底层支持的4:3分辨率中选取最接近该数值的分辨率，并且设置菜单中会显示为填入的数值 -->
+    <!-- 如支持的分辨率中与填入数值差距过大(-50,+50)，则填入的数值无效 -->
+    <!-- 当填入数值为0时会自动选取一个分辨率，填入数值为-1时不使用该分辨率 -->
+    <!-- 每个配置项的第一个数值默认为最高分辨率，不可更改 -->
+    <!-- 以下配置项与pref_camera_picturesize_area_key、pref_camera_picturesize_expanding_key两项不兼容，使用时应删除这两项配置 -->
+    <!-- 后摄4:3分辨率 -->
+    <Item>
+        <key>pref_camera_picturesize_4_3_back</key>
+        <defaultValue>0, 0, 0, -1, -1</defaultValue>
+    </Item>
+    <!-- 后摄16:9分辨率 -->
+    <Item>
+        <key>pref_camera_picturesize_16_9_back</key>
+        <defaultValue>0, 0, 0, -1, -1</defaultValue>
+    </Item>
+    
+        <!-- 前摄4:3分辨率 -->
+    <Item>
+        <key>pref_camera_picturesize_4_3_front</key>
+        <defaultValue>0, -1, -1, -1, -1</defaultValue>
+    </Item>
+
+    <Item>
+        <key>pref_camera_picturesize_16_9_front</key>
+        <defaultValue>0, -1, -1, -1, -1</defaultValue>
+    </Item>
+    
+    <!-- 后摄拍照分辨率默认比例 -->
+    <!-- 取值范围：{18:9,16:9,4:3,1:1,full},配置分辨率比例需要底层参数SupportedPictureSizes也能获取对应的分辨率,如果底层不支持则默认为4:3 -->
+    <Item>
+        <key>pref_camera_picturescale_key</key>
+        <defaultValue>4:3</defaultValue>
+    </Item>
+    
+    
+    <!-- 美白磨皮系数  -->
+    <!-- 取值范围：[0,1.6],默认为1.6,精确到小数点后两位数 -->
+    <!-- 越大美白效果越明显,但越大界面会越有模糊感 -->
+    <Item>
+        <key>pref_camera_beauty_level_parameter_key</key>
+        <defaultValue>1.6</defaultValue>
+    </Item>
+    <!-- 大脸瘦眼系数  -->
+    <!-- 取值范围：[0,1.0],默认为1.0,精确到小数点后两位数 -->
+    <!-- 越大大眼瘦脸效果越明显,但越大人脸就会越失真 -->
+    <Item>
+        <key>pref_camera_slim_level_parameter_key</key>
+        <defaultValue>1.0</defaultValue>
+    </Item>
+    
+        <!-- 相机亮度设置开关  -->
+    <!-- 取值范围：[on, off], 默认值on -->
+    <!-- 设置为on时设置界面显示”相机屏幕亮度“项，点击该项弹出亮度选项卡, 选项卡默认选项由pref_camera_screen_brightness_key配置 -->
+    <!-- 设置为off时，设置中不显示”相机屏幕亮度“项. 如果pref_camera_screen_brightness_value_key未配置或配置为无效值, 亮度跟随系统亮度 -->
+    <Item>
+        <key>pref_camera_brightness_setting_enable_key</key>
+        <defaultValue>on</defaultValue>
+    </Item>
+    <!-- 相机屏幕亮度选项卡默认选项 -->
+    <!-- 取值范围：{low,medium,high},默认值medium -->
+    <Item>
+        <key>pref_camera_screen_brightness_key</key>
+        <defaultValue>high</defaultValue>
+    </Item>
+    
+        <!-- 智能模式 -->
+    <!-- 仅QCOM、MTK平台支持智能模式 -->
+    <!-- 取值范围：{on,off},默认为on -->
+    <Item>
+        <key>pref_camera_smart_mode_enable_key</key>
+        <defaultValue>on</defaultValue>
+    </Item>
+    
+    
+    <!-- 录像慢动作模式 -->
+    <!-- 取值范围：{on,off},默认为off -->
+    <!-- 此功能需要在比较高端的机器上才能打开， 摄像头捕获的帧率需要支持达到100帧以上 -->
+    <Item>
+        <key>pref_camera_slowmotion_mode_enable_key</key>
+        <defaultValue>off</defaultValue>
+    </Item>
+    
+    <!-- 全景模式 -->
+    <!-- 取值范围：{on,off},默认为on -->
+    <Item>
+        <key>pref_camera_panorama_mode_enable_key</key>
+        <defaultValue>off</defaultValue>
+    </Item>
+    
+    <!-- 数字变焦调节功能 -->
+    <!-- 取值范围：{on,off},默认为off -->
+    <Item>
+        <key>pref_camera_zoom_switch_enable_key</key>
+        <defaultValue>on</defaultValue>
+    </Item>
+
+    <!-- 数字变焦调节功能，是否支持主副摄像头切换 -->
+    <!-- 取值范围：{on,off},默认为off -->
+    <Item>
+        <key>pref_camera_zoom_switch_main_to_sub_enable_key</key>
+        <defaultValue>off</defaultValue>
+    </Item>
+
+
+    <!-- 数字变焦调节功能，是否支持广角摄像头切换 -->
+    <!-- 取值范围：{on,off},默认为off -->
+    <Item>
+        <key>pref_camera_zoom_switch_wide_angle_enable_key</key>
+        <defaultValue>on</defaultValue>
+    </Item>
+    
+        <!-- 广角4:3分辨率 -->
+    <Item>
+        <key>pref_camera_picturesize_4_3_wide</key>
+        <defaultValue>0, -1, -1, -1, -1</defaultValue>
+    </Item>
+    <!-- 广角16:9分辨率 -->
+    <Item>
+        <key>pref_camera_picturesize_16_9_wide</key>
+        <defaultValue>0, -1, -1, -1, -1</defaultValue>
+    </Item>
+    <!-- 广角1:1分辨率 -->
+    <Item>
+        <key>pref_camera_picturesize_1_1_wide</key>
+        <defaultValue>-1, -1, -1, -1, -1</defaultValue>
+    </Item>
+    <!-- 广角18:9分辨率 -->
+    <Item>
+        <key>pref_camera_picturesize_18_9_wide</key>
+        <defaultValue>-1, -1, -1, -1, -1</defaultValue>
+    </Item>
+    
+  <!-- 广角镜头id -->
+	<Item>
+		<key>wide_camera_id_key</key>
+		<defaultValue>3</defaultValue>
+	</Item>
+	<!-- 广角镜头4:3预览、拍照分辨率 -->
+	<Item>
+		<key>wide_camera_size_4_3</key>
+		<defaultValue>1440, 1080, 4608, 3456</defaultValue>
+	</Item>
+	<!-- 广角镜头16:9预览、拍照分辨率 -->
+	<Item>
+		<key>wide_camera_size_16_9</key>
+		<defaultValue>1920, 1080, 4608, 2592</defaultValue>
+	</Item>
+	<!-- 广角镜头1:1预览、拍照分辨率 -->
+	<Item>
+		<key>wide_camera_size_1_1</key>
+		<defaultValue>0, 0, 0, 0</defaultValue>
+	</Item>
+    
+    <!-- 是否打开夜景模式 -->
+    <!-- 取值范围：{on,off},默认为off -->
+    <Item>
+        <key>pref_camera_night_mode_enable_key</key>
+        <defaultValue>on</defaultValue>
+    </Item>
+    
+    <!-- HDR算法类型 -->
+    <!-- 取值范围：{none,native,aiworks},默认为off -->
+    <Item>
+        <key>pref_camera_hdr_mode_type_key</key>
+        <defaultValue>aiworks</defaultValue>
+    </Item>
+
+    <!-- HDR配置参数-->
+    <Item>
+        <key>pref_hdr_config_key</key>
+        <defaultValue>{
+            <!-- 项目识别码，没啥用处，只是标识一下，可以辨认-->
+            "productName":"",
+
+            <!-- 摄像头ID，默认为0 -->
+            "cameraID":"0",
+            <!-- 拍照分辨率，如"4000x3000"，需要先打开摄像头并通过log(supportedPhotoSizes)来确认支持哪些分辨率 -->
+            "photoSize":"",
+            <!-- 35 for YUV and 256 for JPEG -->
+            "photoForamt":"35",
+            "comment": "5-TEMPLATE_ZERO_SHUTTER_LAG 2-TEMPLATE_STILL_CAPTURE",
+            "tempLateType":2,
+            <!-- 人脸或人像保护，0 for face and 1 for portrait -->
+            "maskMode":0,
+            "blurMode":false,
+
+            "manualExp":true,
+            "manualExpMin":true,
+            "maxExp":400000000,
+            "minExp":100000,
+            "maxSensitity":6400,
+            "minSensitity":100,
+            "maxDgain":100,
+            "minDgain":100,
+
+            <!-- 手动曝光策略
+            "brightenCoeff": 过曝提亮系数
+            "darkenTimes": 欠曝的变暗基准倍数
+            "darkenRate": 欠曝倍数的变化曲率
+            -->
+            "brightenTimes":1.0,
+            "brightenCoeff":2.0,
+            "minBrightenTimes":1.0,
+            "maxBrightenTimes":3.0,
+            "darkenTimes":1.0,
+            "darkenRate":1.0,
+            "normalBrighten":false,
+
+            "MaxExposure": 4,
+            "MidExposure": 0,
+            "MinExposure": -4,
+
+            "saturation": 1.1,
+
+            "comment": "EDGE 0-OFF 1-FAST 2-HIGH_QUALITY 3-ZERO_SHUTTER_LAG",
+            "edgeMode1": 2,
+            "edgeMode2": 2,
+            "edgeMode3": 2,
+            "comment2": "NOISE 0-OFF 1-FAST 2-HIGH_QUALITY 3-MINIMAL 4-ZERO_SHUTTER_LAG",
+            "noiseMode1": 2,
+            "noiseMode2": 2,
+            "noiseMode3": 2,
+            "minNum": 1,
+            "midNum": 1,
+            "maxNum": 1,
+            "minMfnr": false,
+            "midMfnr": true,
+            "maxMfnr": true,
+
+            "CAPTURE_ORDER_ASCE":false,
+            "FACE_AE_ENABLE":true,
+            "MTK_MFNR_ENABLE":false,
+            "SOFT_MFNR_ENABLE":false,
+            "HDR_NR_LEVEL":2,
+            "HDR_NR_ENABLE":false,
+            "HDR_DG_ENABLE":true
+            }
+        </defaultValue>
+    </Item>
+
+
+    
+    <!-- 虚化模式 -->
+    <!-- mtk_vsdof：真双摄虚化功能,基于MTK平台双摄架构实现 -->
+    <!-- 360：通用双开双摄架构实现 -->
+    <Item>
+        <key>pref_camera_bokeh_type_key</key>
+        <defaultValue>blur</defaultValue>
+    </Item>
+
+    <Item>
+    <key>pref_dualcamera_type_key</key>
+        <defaultValue>cat_brightness_/sys/bus/platform/drivers/image_sensor/bv_val</defaultValue>
+    </Item>
+    
+    <!-- 快门声音开关  -->
+    <!-- 取值范围：{on,off},默认为off,在相机设置菜单不包含快门声音选项  -->
+    <!-- 某些国家与区域、运营商要求快门声音不能关闭,该项无效 -->
+    <Item>
+        <key>pref_camera_shutter_sound_enable_key</key>
+        <defaultValue>on</defaultValue>
+    </Item>
+    <!-- 快门声音默认值 -->
+    <!-- 取值范围：{on,off},默认为on  -->
+    <Item>
+        <key>pref_camera_shutter_sound_key</key>
+        <defaultValue>off</defaultValue>
+    </Item>
+    
+    <!-- android原生人脸识别功能  -->
+    <!-- 取值范围：{on,off},默认为off,设置为on则后摄正常拍照模式下会使用原生人脸识别功能 -->
+    <!-- 部分平台打开该功能会影响人脸的曝光效果 -->
+    <Item>
+        <key>pref_camera_origin_face_detect_enable_key</key>
+        <defaultValue>on</defaultValue>
+    </Item>
+    <!-- android原生人脸识别功能  -->
+    <!-- 取值范围：{on,off},默认为off,设置为on则前摄正常拍照模式下会使用原生人脸识别功能 -->
+    <!-- 部分平台打开该功能会影响人脸的曝光效果 -->
+    <Item>
+        <key>pref_camera_origin_face_detect_front_enable_key</key>
+        <defaultValue>on</defaultValue>
+    </Item>
+    <!-- android原生人脸识别人脸框  -->
+    <!-- 取值范围：{on,off},默认为off,设置为on则后摄正常拍照模式下会显示人脸识别框 -->
+    <Item>
+        <key>pref_camera_origin_face_detect_ui_enable_key</key>
+        <defaultValue>on</defaultValue>
+    </Item>
+    <!-- android原生人脸识别人脸框  -->
+    <!-- 取值范围：{on,off},默认为off,设置为on则前摄正常拍照模式下会显示人脸识别框 -->
+    <Item>
+        <key>pref_camera_origin_face_detect_ui_front_enable_key</key>
+        <defaultValue>on</defaultValue>
+    </Item>
+    
+    <!-- 全景模式 -->
+    <!-- 取值范围：{on,off},默认为on -->
+    <Item>
+        <key>pref_camera_panorama_mode_enable_key</key>
+        <defaultValue>off</defaultValue>
+    </Item>
+    
+        <!-- 闪光灯默认状态-->
+    <!-- 取值范围：{auto,off,on},设置为auto时摄像闪光灯状态默认为关闭,设置为on时摄像闪光灯状态默认为常亮  -->
+    <Item>
+        <key>pref_camera_flashmode_key</key>
+        <defaultValue>auto</defaultValue>
+    </Item>
+    
+    <!-- 专业模式 -->
+    <!--  可以调节白平衡， 感光度， 曝光补偿 -->
+    <!-- 取值范围：{on,off},默认为on -->
+    <Item>
+        <key>pref_camera_professional_mode_enable_key</key>
+        <defaultValue>on</defaultValue>
+    </Item>
+    
+    <!-- 夜景配置参数-->
+    <!-- 取值范围：
+        productName由我们为客户指定，例如："s3_pro"
+        NightStrategy有三种，"isp_mfnr_mode","software_mfnr_mode"和"highlight_suppression_mode",由我们为客户指定-->
+     <Item>
+        <key>pref_night_mode_config_key</key>
+        <defaultValue>{
+            <!-- 项目识别码，没啥用处，只是标识一下，可以辨认-->
+            "productName":"chuanqi_X30_",
+
+            <!-- 算法模式，用来区分平台调用算法
+            mfnr_isp_mode：mtk平台单帧
+            mfnr_software_mode：mtk平台多帧
+            hdrplus_mode：HDRPlus方案
+            -->
+            "NIGHT_MODE":"mfnr_software_mode",
+
+            <!-- 拍照分辨率，如"4000x3000"，需要先打开摄像头并通过log(supportedPhotoSizes)来确认支持哪些分辨率 -->
+            "photoSize":"",
+            <!-- 35 for YUV and 256 for JPEG -->
+            "photoForamt":"256",
+
+            <!-- 曝光参数限定：
+            曝光时间，ISO,数字增益：adb shell dumpsys media.camera获取，可能和实际的不一致所以还是以具体为准。示例：
+            android.sensor.info.exposureTimeRange (f0003): int64[2]
+              [16534 400000000 ]
+            android.sensor.info.sensitivityRange (f0001): int32[2]
+              [100 1600 ]
+            android.control.postRawSensitivityBoostRange (10027): int32[2]
+              [100 3199 ]
+            -->
+            "maxExp":200000000,
+            "minExp":1000000,
+            "maxSensitity":5000,
+            "minSensitity":150,
+            "maxDgain":120,
+            "minDgain":100,
+
+            <!-- smooth曝光策略
+            "Ytarget":一幅画面的目标亮度，LOWLIGHT算法用，计算preview平均亮度，小于Ytarget把亮度提到Ytarget，大于Ytarget认为足够亮不需要提亮操作
+            "lowLightMeanYthr":80 LOWLIGHT_HDR算法提亮用，低亮部分平均亮度的threshold，统计得出低亮的平均亮度
+            "lowLighYtarget":100 LOWLIGHT_HDR算法提亮用，表示要把低亮的平均亮度提到此目标亮度，小于lowLighYtarget把亮度提到lowLighYtarget，大于lowLighYtarget认为足够亮不需要提亮操作
+            "highLightMeanYthr":110 LOWLIGHT_HDR算法欠曝用，高亮部分平均亮度的threshold，统计得出高亮部分的平均亮度
+            "highLighYtarget":60 LOWLIGHT_HDR算法欠曝用，表示要把高亮降到此6目标亮度
+            -->
+            "Ytarget":85,
+            "lowLightMeanYthr":80,
+            "lowLighYtarget":80,
+            "highLightMeanYthr":220,
+            "highLighYtarget":60,
+
+            <!-- 新曝光策略
+            "Newpolicy":新曝光策略flag，设成true以下参数有效，设成false跑旧策略，默认为旧以兼容旧项目
+            "HfpsBrightenTimes":高帧率场景基准提亮倍数
+            "LfpsBrightenTimes":低帧率场景基准提亮倍数
+            "minBrightenTimes":所有场景的最低提亮倍数
+            "brighten_rate":提亮倍数变化的曲率，值越大，较亮场景提亮的倍数越小
+            "darkenTimes": 欠曝的变暗基准倍数
+            "darken_rate": 欠曝倍数的变化曲率，值越大，高光平均亮度低的场景欠曝倍数越小
+            "ExpISO_ratio": 基础曝光时间和ISO的比例
+            "darkenExpISO_ratio": 欠曝时，倍数用来减少曝光和ISO的比例，如0.8，则曝光时间欠曝0.8倍数，ISO欠曝0.2倍数
+            "darkenMinISO":欠曝取图的最小ISO，区分于minSensitity，增加欠曝的可调空间
+            "Lfps_HightlightThr": 高光占比阈值，用于避免高光多的场景提亮过大
+            "Lfps_ExptimeThr": 判定高帧率和低帧率场景的曝光时间阈值
+            "balanceISPExp": 是否需要平衡ISP gain和曝光时间的极限值补充
+            "balanceISOExp": 是否需要平衡ISO和曝光时间的极限值补充
+            -->
+            "Newpolicy" : true,
+            "HfpsBrightenTimes":1.4,
+            "LfpsBrightenTimes":1.6,
+            "minBrightenTimes":1.6,
+            "brighten_rate": 1,
+            "darkenTimes":9,
+            "darken_rate":0.7,
+            "ExpISO_ratio": 1.8,
+            "darkenExpISO_ratio" : 0.2,
+            "darkenMinISO": 100,
+            "Lfps_HightlightThr": 0.035,
+            "Lfps_ExptimeThr" : 30000000,
+            "balanceISPExp" : true,
+            "balanceISOExp" : true,
+
+            <!-- histHighLightLevel/histLowLightLevel定义预览直方图高亮/低亮，并计算出高亮和低亮的占比，根据这两个占比走不同的算法
+            if (histHightlightPercent < histHightLightPercentAlgo && lowlightPercent > histLowLightPercentAlgo) {
+                histAlgo = CaptureType.LOWLIGHT;
+            } else if (histHightlight255Percent < histHightLight255PercentAlgo) {
+                histAlgo = CaptureType.LOWLIGHT;
+            } else if (mMeanHistY > Ytarget) {
+                histAlgo = CaptureType.LOWLIGHT;
+            } else {
+                histAlgo = CaptureType.LOWLIGHT_HDR;
+            }
+            -->
+            "histHighLightLevel":220,
+            "histLowLightLevel":70,
+            "histHightLightPercentAlgo":0.001,
+            "histLowLightPercentAlgo":0.90,
+            "histHightLight255PercentAlgo":0.002,
+			"highLight255Thr":240,
+            <!-- ISP 图像增强部分（仅部分平台有效）
+            NOISE_REDUCTION_MODE: FAST = 1; HIGH_QUALITY = 2;MINIMAL = 3;OFF = 0;ZERO_SHUTTER_LAG = 4;
+            EDGE_MODE:FAST = 1; HIGH_QUALITY = 2; OFF = 0; ZERO_SHUTTER_LAG = 3;
+            -->
+            "noiseReductionMode":1,
+            "edgeMode":2,
+            "sharpness":-1,
+            "saturation":-1,
+            "contrast":-1,
+            "aeMeterMode":-1,
+            "sceneMode":-1,
+
+            <!-- HDRPlus算法图像增强部分：-->
+            <!-- HDRPlus快速模式，true表示开启快速模式，false表示关闭快速模式-->
+            "HDRPLUS_FAST_MODE":true,
+            <!-- HDRPlus降彩噪强度[int]，取值范围[1~10]，设为0则不生效-->
+            "HDRPLUS_NR_LEVEL":0,
+            <!-- HDRPlus降灰度噪声强度[int]，取值范围[1~10]，设为0则不生效-->
+            "HDRPLUS_LNR_LEVEL":0,
+            <!-- HDRPlus对比度强度[float]，取值范围[0~1]，设为0则不生效-->
+            "HDRPLUS_CONTRAST_LEVEL":0.1,
+            <!-- HDRPlus锐度强度[float]，取值范围[0~1]，设为0则不生效-->
+            "HDRPLUS_SP_LEVEL":0.2,
+            <!-- HDRPlus提亮等级[int]，取值范围[1,2,3,4,5,6,7,8,9,10]，设为0则不生效-->
+            "HDRPLUS_TMO_LEVEL":4,
+
+            <!-- 单帧算法参数 -->
+            <!--单帧降彩噪强度[int]，取值范围[1~10]-->
+            "LOWLIGHT_CNR_LEVEL":0,
+            <!-- 单帧降灰度噪声强度[int]，取值范围[1~10]-->
+            "LOWLIGHT_LNR_LEVEL":0,
+            <!-- 单帧提亮等级[int]，取值范围[1~10]-->
+            "LOWLIGHT_BRIGHTNESS_LEVEL":7,
+            <!-- 单帧对比度强度[float]，取值范围[0~1]-->
+            "LOWLIGHT_CONTRAST_LEVEL":0,
+            <!-- 单帧锐度强度[float]，取值范围[0~1]-->
+            "LOWLIGHT_SHARPNESS_LEVEL":0,
+
+            <!--
+            mfnr_minExp_mfb：mfnr_software_mode模式下高光场景获取欠爆图像时是否开启mfb
+            -->
+            "mfnr_minExp_mfb":false
+            }
+        </defaultValue>
+    </Item>
+    <Item>
+        <key>pref_camera_macroLens_mode_enable_key</key>
+        <defaultValue>on</defaultValue>
+    </Item>
+    <!-- 微距模式摄像头ID配置 -->
+    <!-- 取值范围：{2,3,...},默认为4，根据实际的微距摄像头id取值 -->
+    <Item>
+        <key>pref_camera_macro_lens_camera_id_key</key>
+        <defaultValue>2</defaultValue>
+    </Item>
+
+    <Item>
+        <key>pref_camera_beautyvideo_mode_enable_key</key>
+        <defaultValue>on</defaultValue>
+    </Item>
+</CameraPreferences>
